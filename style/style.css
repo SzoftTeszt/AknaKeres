@@ -5,3 +5,13 @@
 body{
     background-color: aqua;
 }
+.cella{
+    margin: 50px;
+    width: 200px;
+    height: 200px;
+    border: 20px outset #f4f4f4;
+background: #ffffff;
+    background-color: #fff;
+    /* background-image: url("../img/flag.png");
+    background-size: contain; */
+}

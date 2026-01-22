@@ -79,7 +79,44 @@ function aknatSzamol(cella){
 }
 
 
-palyaKeszit(5,5,5)
+palyaKeszit(5,5,1)
+
+function nyitas(cella){
+    if (!cella || cella.classList.contains("nyitva")) return
+    cella.classList.add("nyitva")
+    cella.removeEventListener("mousedown", kattintas)
+    if (cella.dataset.aknakSzama!="0")
+                    cella.textContent=cella.dataset.aknakSzama
+    else{
+        nyitas(cella.previousElementSibling);
+        nyitas(cella.nextElementSibling);
+        let hanyadik=0
+        let sCella=cella
+        while(sCella.previousElementSibling)
+        {           
+            hanyadik++
+            sCella=sCella.previousElementSibling
+        }
+        nyitas(cella.parentNode.previousElementSibling?.children[hanyadik-1]);
+        nyitas(cella.parentNode.previousElementSibling?.children[hanyadik])
+        nyitas(cella.parentNode.previousElementSibling?.children[hanyadik+1])
+
+        nyitas(cella.parentNode.nextElementSibling?.children[hanyadik-1]);
+        nyitas(cella.parentNode.nextElementSibling?.children[hanyadik])
+        nyitas(cella.parentNode.nextElementSibling?.children[hanyadik+1])
+
+    }
+    console.log("cella: ",document.getElementsByClassName("cella").length)
+    console.log("akna: ",document.getElementsByClassName("akna").length)
+    // Üzleti logika?
+    // Mikor győztem????
+    if ((document.getElementsByClassName("cella").length-document.getElementsByClassName("akna").length)==document.getElementsByClassName("nyitva").length)
+    {  
+         console.log("Győztünk")
+    }
+    }
+
+
 
 function kattintas(event){
     console.log(event.button)
@@ -93,10 +130,7 @@ function kattintas(event){
             else{
                 // jó helyre kattintott
                 // event.target.style.border="none"
-                event.target.classList.add("nyitva")
-                event.target.removeEventListener("mousedown", kattintas)
-                if (event.target.dataset.aknakSzama!="0")
-                    event.target.textContent=event.target.dataset.aknakSzama
+                nyitas(event.target)
             }
             break
         case 2:

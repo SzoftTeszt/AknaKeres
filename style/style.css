@@ -1,17 +1,37 @@
 *{
     margin:0;
     padding:0;
+    box-sizing: border-box;
 }
 body{
-    background-color: aqua;
+    background-color: rgb(192, 227, 227);
+}
+h1{
+    font-size: 5rem;
+    margin: 20px;
+    text-align: center;
+}
+#palya{
+    margin:0 auto;
+}
+.sor{
+    display: flex;
+    justify-content: center;
 }
 .cella{
-    margin: 50px;
-    width: 200px;
-    height: 200px;
-    border: 20px outset #f4f4f4;
+ 
+    width: 100px;
+    height: 100px;
+    border: 10px outset #f4f4f4;
 background: #ffffff;
     background-color: #fff;
-    /* background-image: url("../img/flag.png");
-    background-size: contain; */
+    /* background-image: url("../img/flag.png");*/
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.zaszlo{
+     background-image: url("../img/flag.png")
+}
+.akna{
+    background-image: url("../img/akna.png")
 }

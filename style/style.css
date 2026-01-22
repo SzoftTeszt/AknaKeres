@@ -28,10 +28,18 @@ background: #ffffff;
     /* background-image: url("../img/flag.png");*/
     background-size: contain;
     background-repeat: no-repeat;
+    text-align: center;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .zaszlo{
      background-image: url("../img/flag.png")
 }
 .akna{
     background-image: url("../img/akna.png")
+}
+.nyitva{
+    background-color: #ddd;
 }

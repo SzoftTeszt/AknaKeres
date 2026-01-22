@@ -37,7 +37,7 @@ function aknasit(sor,oszlop, aknaSzam){
 
     const cellak= document.getElementsByClassName("cella")
     for (const element of cellak) {
-        element.textContent=aknatSzamol(element)
+        element.dataset.aknakSzama=aknatSzamol(element)
     }
 
 }
@@ -79,7 +79,7 @@ function aknatSzamol(cella){
 }
 
 
-palyaKeszit(5,5,15)
+palyaKeszit(5,5,5)
 
 function kattintas(event){
     console.log(event.button)
@@ -92,6 +92,11 @@ function kattintas(event){
                         console.log("Vesztettél te buta!!!")
             else{
                 // jó helyre kattintott
+                // event.target.style.border="none"
+                event.target.classList.add("nyitva")
+                event.target.removeEventListener("mousedown", kattintas)
+                if (event.target.dataset.aknakSzama!="0")
+                    event.target.textContent=event.target.dataset.aknakSzama
             }
             break
         case 2:
